@@ -1,11 +1,11 @@
 import React from 'react';
 import './TodoItem.scss';
 
-const TodoItem = () => {
+const TodoItem = ({ todo }) => {
   return (
-    <div>
-      TodoItem Card
-    </div>
+    <li className="todo-list-item">
+      {todo.id}. {todo.title}
+    </li>
   );
 };
 
