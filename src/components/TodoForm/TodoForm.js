@@ -4,9 +4,13 @@ import './TodoForm.scss';
 class TodoForm extends Component {
   render() {
     return (
-      <div>
-        Todo 입력 양식 컴포넌트
-      </div>
+      <form>
+        <label htmlFor="title">제목</label>
+        <input type="text" id="title" />
+        <label htmlFor="contents">상세내용</label>
+        <textarea id="contents" />
+        <button type="submit">추가</button>
+      </form>
     );
   }
 }

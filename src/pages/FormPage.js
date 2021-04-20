@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import TodoForm from 'components/TodoForm/TodoForm';
 
 class FormPage extends Component {
   render() {
     return (
       <div>
-        작성 페이지
+        <h2>할일 추가</h2>
+        <TodoForm />
       </div>
     );
   }
