@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import storage from 'utils/storage';
 import TodoItem from 'components/TodoItem/TodoItem';
 
+function EmptyTodos() {
+  return (
+    <p>할일 목록이 없습니다.</p>
+  )
+}
+
 class ListPage extends Component {
   state = {
     todos: [],
@@ -28,11 +34,11 @@ class ListPage extends Component {
 
     return (
       <section className="list-page">
-        {!!todos.length
-          ? (<ul className="todo-list">
+        {!todos || todos.length === 0
+          ? <EmptyTodos />
+          : (<ul className="todo-list">
               {todos.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
             </ul>)
-          : (<p>할일 목록이 없습니다.</p>)
         }
       </section>
     );
