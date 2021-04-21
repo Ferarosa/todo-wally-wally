@@ -15,8 +15,8 @@ const App = () => {
           <Redirect to="/list" />
         </Route>
         <Route exact path="/list" component={ListPage} />
-        <Route exact path="/form" component={FormPage} />
-        <Route exact path="/edit/:id" component={FormPage} />
+        <Route exact path="/form" render={(props) => <FormPage {...props} type="add" />} />
+        <Route exact path="/edit/:id" render={(props) => <FormPage {...props} type="edit" />} />
         <Route exact path="/detail/:id" component={DetailPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
