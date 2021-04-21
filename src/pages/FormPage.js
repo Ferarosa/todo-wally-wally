@@ -97,14 +97,14 @@ class FormPage extends Component {
 
     const todos = JSON.parse(storage.getItem('wally-todos'));
 
+    const todoForm = {
+      id: todoId,
+      title,
+      contents,
+      isCompleted: false,
+    };
+    
     if (type === 'add') {
-      const todoForm = {
-        id: todoId,
-        title,
-        contents,
-        isCompleted: false,
-      };
-
       todos.push(todoForm);
       storage.setItem('wally-todos', JSON.stringify(todos));
 
