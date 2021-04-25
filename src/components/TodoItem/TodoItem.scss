@@ -1,1 +1,10 @@
-// empty
+.todo-list-item {
+  &-title,
+  &-link {
+    display: inline-block;
+  }
+
+  & + & {
+    margin-top: 20px;
+  }
+}
