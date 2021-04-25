@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoCategory from 'components/TodoCategory/TodoCategory';
 import TodoItem from 'components/TodoItem/TodoItem';
+import EmptyTodos from 'components/EmptyTodos/EmptyTodos';
 import NotFoundPage from './NotFoundPage';
 import './ListPage.scss';
 import api from 'api';
@@ -50,12 +51,16 @@ class ListPage extends Component {
 
     return (
       <section className="todo-list-page">
-        <h2><span className="emoji">📋</span> 할 일 목록</h2>
-        <TodoCategory onChangeFilterOption={this.onChangeFilterOption} />
+        <h2>
+          <span className="emoji">📋</span> 할 일 목록
+        </h2>
+        {(!!todos && todos.length > 0) && <TodoCategory onChangeFilterOption={this.onChangeFilterOption} />}
         {!todos || todos.length === 0
-          ? (<p className="no-exist-todo-list">할 일 목록이 없습니다.</p>)
+          ? <EmptyTodos />
           : (<ul className="todo-list">
-              {todos.map((todo) => <TodoItem key={todo.id} todo={todo} onToggleTodoComplete={this.onToggleTodoComplete} />)}
+              {todos.map((todo) => {
+                return <TodoItem key={todo.id} todo={todo} onToggleTodoComplete={this.onToggleTodoComplete} />
+              })}
             </ul>)
         }
       </section>

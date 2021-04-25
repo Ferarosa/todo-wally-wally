@@ -57,7 +57,9 @@ class DetailPage extends Component {
       <section className="todo-detail-page">
         <article className="todo-detail">
           <div className="todo-detail-title">
-            <h3><span className="emoji">🌟</span> 제목</h3>
+            <h3>
+              <span className="emoji">🌟</span> 제목
+            </h3>
             <div className="todo-detail-completed-checkbox" onClick={() => this.onToggleTodoComplete(todo.id)}>
               {todo.isCompleted ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
               할 일 완료 체크
@@ -65,7 +67,9 @@ class DetailPage extends Component {
             <p className="title">{todo.title}</p>
           </div>
           <div className="todo-detail-contents">
-            <h3><span className="emoji">🌟</span> 내용</h3>
+            <h3>
+              <span className="emoji">🌟</span> 내용
+            </h3>
             <p className="contents">{todo.contents}</p>
           </div>
         </article>
