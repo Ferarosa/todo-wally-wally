@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import './TodoForm.scss';
 
 class TodoForm extends Component {
+  titleInput = React.createRef();
+
+  componentDidMount() {
+    this.focusTitleInput();
+  }
+
+  focusTitleInput = () => {
+    this.titleInput.current.focus();
+  }
+
   onChangeTitle = (e) => {
     this.props.onChangeTitle(e.target.value);
   }
@@ -21,7 +31,7 @@ class TodoForm extends Component {
       <form className="todo-form" onSubmit={onSubmitTodo}>
         <article className="todo-form-title">
           <label htmlFor="title">제목</label>
-          <input type="text" id="title" value={title} onChange={this.onChangeTitle} />
+          <input type="text" ref={this.titleInput} id="title" value={title} onChange={this.onChangeTitle} />
         </article>
         <article className="todo=form-contents">
           <label htmlFor="contents">상세내용</label>

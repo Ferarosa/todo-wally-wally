@@ -46,7 +46,7 @@ class FormPage extends Component {
       return;
     }
 
-    const matchedTodo = todos.find((todo) => todo.id === todoId);
+    const matchedTodo = todos.find((todo) => todo.id === +todoId);
 
     // [prechecker3] id 값과 매칭되는 todo 항목이 없는 경우 404 Not Found Page 보여주기
     if (!matchedTodo) {
