@@ -21,14 +21,14 @@ const create = {
     const todos = JSON.parse(storage.getItem('wally-todos'));
     const todoId = !todos || todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
 
-    todos.push({
+    const newTodos = todos.concat({
       id: todoId,
       title,
       contents,
       isCompleted: false,
     });
 
-    storage.setItem('wally-todos', JSON.stringify(todos));
+    storage.setItem('wally-todos', JSON.stringify(newTodos));
 
     return {
       message: '할일이 추가되었습니다.',

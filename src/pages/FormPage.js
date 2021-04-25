@@ -8,6 +8,7 @@ class FormPage extends Component {
     type: '', // 추가 or 수정 유형 지정
     title: '', // 제목
     contents: '', // 내용
+    isCompleted: false, // 완료 여부
     isError: false, // 할일 작성 페이지 로드시 에러인 경우 Not Found Page 보여주기 위한 플래그
   }
 
@@ -33,6 +34,21 @@ class FormPage extends Component {
       this.setState({
         title: data.title,
         contents: data.contents,
+        isCompleted: data.isCompleted,
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const presentType = this.props.type;
+    const prevType = prevProps.type;
+
+    if (presentType !== prevType && presentType === 'add') {
+      this.setState({
+        type: presentType,
+        title: '',
+        contents: '',
+        isError: false,
       });
     }
   }
@@ -58,20 +74,31 @@ class FormPage extends Component {
   onSubmitTodo = (e) => {
     e.preventDefault();
 
-    const { title, contents, type } = this.state;
-    const { history } = this.props;
+    const { type, title, contents, isCompleted } = this.state;
+    const { history, match } = this.props;
 
-    if (type === 'add') {
-      const { message, isError } = api.createTodoItem({
-        title,
-        contents,
-      });
-
+    const requestSubmitTodo = (fn, todoForm, next) => {
+      const { message, isError } = fn(todoForm);
+      
       alert(message);
 
       if (!isError) {
-        history.push('/list');
+        history.push(next);
       }
+    };
+
+    if (type === 'add') {
+      requestSubmitTodo(api.createTodoItem, {
+        title,
+        contents,
+      }, '/list');
+    } else {
+      requestSubmitTodo(api.updateTodoItem, {
+        id: +match.params.id,
+        title,
+        contents,
+        isCompleted,
+      }, `/detail/${match.params.id}`);
     }
   }
 
