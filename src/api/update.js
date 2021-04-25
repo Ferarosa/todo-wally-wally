@@ -28,7 +28,7 @@ const update = {
     storage.setItem('wally-todos', JSON.stringify(updatedTodos));
 
     return {
-      message: '할일이 수정되었습니다.',
+      message: '할 일이 수정되었습니다.',
       isError: false,
     }
   },

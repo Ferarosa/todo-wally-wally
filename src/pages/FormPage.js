@@ -10,7 +10,7 @@ class FormPage extends Component {
     title: '', // 제목
     contents: '', // 내용
     isCompleted: false, // 완료 여부
-    isError: false, // 할일 작성 페이지 로드시 에러인 경우 Not Found Page 보여주기 위한 플래그
+    isError: false, // 할 일 작성 페이지 로드시 에러인 경우 Not Found Page 보여주기 위한 플래그
   }
 
   componentDidMount() {

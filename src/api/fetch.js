@@ -1,7 +1,7 @@
 import api from 'api';
 import storage from 'utils/storage';
 
-// temp function) id가 클수록 최근에 작성한 할일이기 때문에 최신순으로 정렬하는 임시 함수 구성
+// temp function) id가 클수록 최근에 작성한 할 일이기 때문에 최신순으로 정렬하는 임시 함수 구성
 const recentlySortFunction = (a, b) => b.id - a.id;
 
 const fetch = {
@@ -53,7 +53,7 @@ const fetch = {
     if (!todos) {
       return {
         data: {},
-        message: '할일 목록이 존재하지 않습니다.',
+        message: '할 일 목록이 존재하지 않습니다.',
         isError: true,
       }
     }
@@ -62,7 +62,7 @@ const fetch = {
     if (!matcedTodoItem) {
       return {
         data: {},
-        message: 'id 값과 일치하는 할일 항목이 존재하지 않습니다.',
+        message: 'id 값과 일치하는 할 일 항목이 존재하지 않습니다.',
         isError: true,
       }
     }

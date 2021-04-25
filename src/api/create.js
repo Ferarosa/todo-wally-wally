@@ -52,7 +52,7 @@ const create = {
     storage.setItem('wally-todos', JSON.stringify(newTodos));
 
     return {
-      message: '할일이 추가되었습니다.',
+      message: '할 일이 추가되었습니다.',
       isError: false,
     }
   }

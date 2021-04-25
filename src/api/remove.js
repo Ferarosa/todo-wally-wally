@@ -17,7 +17,7 @@ const remove = {
     storage.setItem('wally-todos', JSON.stringify(filteredTodos));
 
     return {
-      message: '할일이 삭제되었습니다.',
+      message: '할 일이 삭제되었습니다.',
       isError: false,
     }
   },
