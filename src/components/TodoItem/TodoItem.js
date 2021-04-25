@@ -14,7 +14,10 @@ class TodoItem extends Component {
 
     return (
       <li className="todo-list-item">
-        <div className={`todo-list-item-title ${setCompletedClassName(todo.isCompleted)}`} onClick={() => onToggleTodoComplete(todo.id)}>
+        <div
+          className={`todo-list-item-title ${setCompletedClassName(todo.isCompleted)}`}
+          onClick={() => onToggleTodoComplete(todo.id)}
+        >
           {text.ellipsis(todo.title, 20)} <span className="date">({date.formatedDate(todo.createdAt)})</span>
         </div>
         <Link className="todo-list-item-link" to={`/detail/${todo.id}`}>

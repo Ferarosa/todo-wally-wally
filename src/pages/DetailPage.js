@@ -75,8 +75,8 @@ class DetailPage extends Component {
         </article>
         <article className="todo-detail-footer">
           <article className="todo-detail-footer-date">
-            {todo.createdAt && <p className="date">작성 일자: {date.formatedDate(todo.createdAt)}</p>}
-            {todo.updatedAt && <p className="date">수정 일자: {date.formatedDate(todo.updatedAt)}</p>}
+            {todo.createdAt && <p className="date">작성 일자: {date.formatedDate(todo.createdAt, true)}</p>}
+            {todo.updatedAt && <p className="date">수정 일자: {date.formatedDate(todo.updatedAt, true)}</p>}
           </article>
           <article className="todo-detail-footer-button">
             <Link className="todo-detail-footer-button-item edit" to={`/edit/${todo.id}`}>수정</Link>

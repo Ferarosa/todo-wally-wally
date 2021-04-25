@@ -1,6 +1,15 @@
 const date = {
-  formatedDate(date) {
-    return date.slice(0, 10);
+  formatedDate(date, isShowTime = false) {
+    const yyymmdd = date.slice(0, 10);
+    const hhmmss = date.slice(11, 19);
+
+    const dateValueElements = [yyymmdd];
+
+    if (isShowTime) {
+      dateValueElements.push(hhmmss);
+    }
+
+    return dateValueElements.join(' ');
   }
 }
 

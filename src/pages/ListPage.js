@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import TodoCategory from 'components/TodoCategory/TodoCategory';
-import TodoItem from 'components/TodoItem/TodoItem';
 import EmptyTodos from 'components/EmptyTodos/EmptyTodos';
 import NotFoundPage from './NotFoundPage';
 import './ListPage.scss';
 import api from 'api';
+import TodoList from 'components/TodoList/TodoList';
 
 class ListPage extends Component {
   state = {
@@ -60,11 +60,7 @@ class ListPage extends Component {
         />
         {!todos || todos.length === 0
           ? <EmptyTodos />
-          : (<ul className="todo-list">
-              {todos.map((todo) => {
-                return <TodoItem key={todo.id} todo={todo} onToggleTodoComplete={this.onToggleTodoComplete} />
-              })}
-            </ul>)
+          : <TodoList todos={todos} onToggleTodoComplete={this.onToggleTodoComplete} />
         }
       </section>
     );
