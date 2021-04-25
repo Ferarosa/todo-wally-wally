@@ -14,13 +14,28 @@ class DetailPage extends Component {
   }
 
   fetchTodoItem = () => {
-    const todoId = this.props.match.params.id;
-    const { data, isError } = api.fetchTodoItem(todoId);
+    const { params } = this.props.match;
+    const { data, isError } = api.fetchTodoItem(params.id);
 
     this.setState({
       todo: data,
       isError,
     })
+  }
+
+  removeTodoItem = () => {
+    const { todo } = this.state;
+    const { history } = this.props;
+
+    if (confirm('할일을 정말로 삭제하시겠습니까?')) { //eslint-disable-line
+      const { message, isError } = api.removeTodoItem(todo.id);
+
+      alert(message);
+
+      if (!isError) {
+        history.push('/list');
+      }
+    }
   }
 
   render() {
@@ -39,7 +54,7 @@ class DetailPage extends Component {
         </article>
         <article className="todo-detail-button-wrapper">
           <Link to={`/edit/${todo.id}`}>수정</Link>
-          <button type="button">삭제</button>
+          <button type="button" onClick={this.removeTodoItem}>삭제</button>
         </article>
       </section>
     );
