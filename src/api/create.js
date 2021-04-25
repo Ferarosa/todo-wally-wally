@@ -14,6 +14,13 @@ const create = {
       }
     }
 
+    if (title.trim().length > 50) {
+      return {
+        message: '제목은 최대 50자까지 작성할 수 있습니다.',
+        isError: true,
+      }
+    }
+
     if (contents.trim() === '') {
       return {
         message: '내용을 입력해주세요.',
@@ -21,8 +28,15 @@ const create = {
       }
     }
 
+    if (contents.trim().length > 1000) {
+      return {
+        message: '내용은 최대 1000자까지 작성할 수 있습니다.',
+        isError: true,
+      }
+    }
+
     const todos = api.fetchTodoList().data.sort(recentlySortFunction);
-    const todoId = !todos || todos.length === 0 ? 1 : todos[0].id + 1;
+    const todoId = todos.length === 0 ? 1 : todos[0].id + 1;
 
     const nowDate = new Date();
 

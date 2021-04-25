@@ -58,9 +58,9 @@ class ListPage extends Component {
           filterOption={filterOption}
           onChangeFilterOption={this.onChangeFilterOption}
         />
-        {!todos || todos.length === 0
-          ? <EmptyTodos />
-          : <TodoList todos={todos} onToggleTodoComplete={this.onToggleTodoComplete} />
+        {!!todos.length
+          ? <TodoList todos={todos} onToggleTodoComplete={this.onToggleTodoComplete} />
+          : <EmptyTodos />
         }
       </section>
     );

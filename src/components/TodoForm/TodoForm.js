@@ -12,27 +12,45 @@ class TodoForm extends Component {
     this.titleInput.current.focus();
   }
 
+  setAlertClassName = (fn) => {
+    return fn ? 'alert' : '';
+  }
+
   render() {
     const { typeText, title, contents, onChangeInput, onSubmitTodo } = this.props;
 
     return (
       <form className="todo-form" onSubmit={onSubmitTodo}>
         <article className="todo-form-title">
-          <label htmlFor="title">제목</label>
+          <label htmlFor="title">
+            제목
+            <br />
+            <small className={this.setAlertClassName(title.length > 50)}>
+              ({title.length}/50)
+            </small>
+          </label>
           <input
             id="title"
             name="title"
             type="text"
+            placeholder="제목을 입력해주세요(최대 50자)"
             ref={this.titleInput}
             value={title}
             onChange={onChangeInput}
           />
         </article>
         <article className="todo=form-contents">
-          <label htmlFor="contents">상세 내용</label>
+          <label htmlFor="contents">
+            상세 내용
+            <br />
+            <small className={this.setAlertClassName(contents.length > 1000)}>
+              ({contents.length}/1000)
+            </small>
+          </label>
           <textarea
             id="contents"
             name="contents"
+            placeholder="내용을 작성해주세요(최대 1000자)"
             value={contents}
             onChange={onChangeInput}
           />

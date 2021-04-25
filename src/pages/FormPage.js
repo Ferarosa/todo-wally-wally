@@ -16,6 +16,10 @@ class FormPage extends Component {
   componentDidMount() {
     const { type } = this.props;
 
+    this.setState({
+      type,
+    })
+
     if (type === 'edit') {
       this.fetchTodoItem();
     }

@@ -3,30 +3,29 @@
 
   article {
     display: flex;
+    align-items: center;
     margin-bottom: 20px;
 
     label {
       text-align: center;
-      width: 80px;
+      width: 100px;
 
-      &[for="title"] {
-        line-height: 30px;
-      }
-
-      &[for="contents"] {
-        line-height: 200px;
+      small.alert {
+        color: crimson;
+        font-weight: 600;
       }
     }
 
     input, textarea {
       flex-grow: 1;
+      padding: 10px;
       border: 1px solid silver;
       border-radius: 5px;
       box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
     }
 
     input {
-      height: 30px;
+      height: 50px;
     }
 
     textarea {
