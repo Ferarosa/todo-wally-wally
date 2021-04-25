@@ -17,6 +17,7 @@ const fetch = {
   fetchTodoItem(id) {
     if (!id) {
       return {
+        data: {},
         message: 'id 값을 함께 요청해주세요.',
         isError: true,
       }
