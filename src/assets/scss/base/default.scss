@@ -18,6 +18,14 @@ input, textarea {
   box-sizing: border-box;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  cursor: pointer;
+}
+
 a {
   color: #333;
   text-decoration: none;

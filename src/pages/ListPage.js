@@ -1,41 +1,43 @@
 import React, { Component } from 'react';
-import storage from 'utils/storage';
 import TodoItem from 'components/TodoItem/TodoItem';
-
-function EmptyTodos() {
-  return (
-    <p>할일 목록이 없습니다.</p>
-  )
-}
+import api from 'api';
+import NotFoundPage from './NotFoundPage';
 
 class ListPage extends Component {
   state = {
     todos: [],
+    isError: false,
   }
 
   componentDidMount() {
-    this.fetchTodos();
+    this.fetchTodoList();
   }
 
-  fetchTodos = () => {
-    // 이 페이지를 최초로 여는 경우 빈 배열로 세팅
-    const fetchedTodos = storage.getItem('wally-todos');
-    if (!fetchedTodos) {
-      storage.setItem('wally-todos', JSON.stringify([]));
-    }
+  fetchTodoList = () => {
+    const { data, isError } = api.fetchTodoList();
 
+    if (isError) {
+      this.setState({
+        isError,
+      })
+    }
+    
     this.setState({
-      todos: JSON.parse(fetchedTodos),
+      todos: JSON.parse(data),
     })
   }
 
   render() {
-    const { todos } = this.state;
+    const { todos, isError } = this.state;
+
+    if (isError) {
+      return <NotFoundPage />;
+    }
 
     return (
       <section className="list-page">
         {!todos || todos.length === 0
-          ? <EmptyTodos />
+          ? (<p>할일 목록이 없습니다.</p>)
           : (<ul className="todo-list">
               {todos.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
             </ul>)
