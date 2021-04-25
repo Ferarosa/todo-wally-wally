@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 import api from 'api';
 import NotFoundPage from './NotFoundPage';
 import './DetailPage.scss';
@@ -22,6 +23,11 @@ class DetailPage extends Component {
       todo: data,
       isError,
     })
+  }
+
+  onToggleTodoComplete = (id) => {
+    api.toggleTodoItem(id);
+    this.fetchTodoItem();
   }
 
   removeTodoItem = () => {
@@ -51,6 +57,10 @@ class DetailPage extends Component {
         <article className="todo-detail">
           <div className="todo-detail-title">
             <h3>제목</h3>
+            <div className="todo-detail-completed-checkbox" onClick={() => this.onToggleTodoComplete(todo.id)}>
+              {todo.isCompleted ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+              할일 완료 체크
+            </div>
             <p className="title">{todo.title}</p>
           </div>
           <div className="todo-detail-contents">
@@ -58,9 +68,9 @@ class DetailPage extends Component {
             <p className="contents">{todo.contents}</p>
           </div>
         </article>
-        <article className="todo-detail-buttons">
-          <Link to={`/edit/${todo.id}`}>수정</Link>
-          <button type="button" onClick={this.removeTodoItem}>삭제</button>
+        <article className="todo-detail-button">
+          <Link className="todo-detail-button-item edit" to={`/edit/${todo.id}`}>수정</Link>
+          <button className="todo-detail-button-item delete" type="button" onClick={this.removeTodoItem}>삭제</button>
         </article>
       </section>
     );

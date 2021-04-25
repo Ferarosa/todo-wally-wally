@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import TodoItem from 'components/TodoItem/TodoItem';
-import api from 'api';
 import NotFoundPage from './NotFoundPage';
+import './ListPage.scss';
+import api from 'api';
 
 class ListPage extends Component {
   state = {
@@ -35,9 +36,10 @@ class ListPage extends Component {
     }
 
     return (
-      <section className="list-page">
+      <section className="todo-list-page">
+        <h2>할일 목록</h2>
         {!todos || todos.length === 0
-          ? (<p>할일 목록이 없습니다.</p>)
+          ? (<p className="no-exist-todo-list">할일 목록이 없습니다.</p>)
           : (<ul className="todo-list">
               {todos.map((todo) => <TodoItem key={todo.id} todo={todo} onToggleTodoComplete={this.onToggleTodoComplete} />)}
             </ul>)

@@ -1,0 +1,24 @@
+.todo-list-page {
+  font-family: 'Noto Sans KR';
+
+  h2 {
+    font-size: 28px;
+    font-weight: 500;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid silver;
+    display: inline-block;
+  }
+
+  .no-exist-todo-list {
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px 0;
+    color: crimson;
+  }
+
+  .todo-list {
+    padding-top: 10px;
+  }
+}

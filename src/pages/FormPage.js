@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoForm from 'components/TodoForm/TodoForm';
 import NotFoundPage from './NotFoundPage';
+import './FormPage.scss';
 import api from 'api';
 
 class FormPage extends Component {
@@ -102,6 +103,10 @@ class FormPage extends Component {
     }
   }
 
+  typeText = (type) => {
+    return type === 'add' ? '추가' : '수정';
+  }
+
   render() {
     const { type, title, contents, isError } = this.state;
 
@@ -111,9 +116,9 @@ class FormPage extends Component {
 
     return (
       <section className="todo-form-page">
-        <h2>할일 {type === 'add' ? '추가' : '수정'}</h2>
+        <h2>할일 {this.typeText(type)}</h2>
         <TodoForm
-          type={type}
+          typeText={this.typeText(type)}
           title={title}
           contents={contents}
           onChangeTitle={this.onChangeTitle}

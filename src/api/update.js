@@ -5,6 +5,20 @@ const update = {
   updateTodoItem(todoForm) {
     const { id, title, contents } = todoForm;
 
+    if (title.trim() === '') {
+      return {
+        message: '제목을 입력해주세요.',
+        isError: true,
+      }
+    }
+
+    if (contents.trim() === '') {
+      return {
+        message: '내용을 입력해주세요.',
+        isError: true,
+      }
+    }
+
     const todos = api.fetchTodoList().data;
 
     const updatedTodos = todos.map((todo) => {
@@ -26,7 +40,6 @@ const update = {
     });
 
     console.log(updatedTodos)
-
     storage.setItem('wally-todos', JSON.stringify(updatedTodos));
   }
 }

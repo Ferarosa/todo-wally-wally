@@ -1,1 +1,46 @@
-// empty
+.todo-form {
+  width: 100%;
+
+  article {
+    display: flex;
+    margin-bottom: 20px;
+
+    label {
+      text-align: center;
+      width: 80px;
+
+      &[for="title"] {
+        line-height: 30px;
+      }
+
+      &[for="contents"] {
+        line-height: 200px;
+      }
+    }
+
+    input, textarea {
+      flex-grow: 1;
+      border: 1px solid silver;
+      border-radius: 5px;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      height: 30px;
+    }
+
+    textarea {
+      height: 200px;
+      resize: none;
+    }
+  }
+
+  button {
+    display: block;
+    margin-left: auto;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 4px;
+    background-color: rgb(226, 206, 95);
+  }
+}
