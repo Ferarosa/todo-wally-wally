@@ -116,7 +116,7 @@ class FormPage extends Component {
 
     return (
       <section className="todo-form-page">
-        <h2>할일 {this.typeText(type)}</h2>
+        <h2><span className="emoji">✏️</span> 할일 {this.typeText(type)}</h2>
         <TodoForm
           typeText={this.typeText(type)}
           title={title}

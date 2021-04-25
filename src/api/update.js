@@ -38,8 +38,7 @@ const update = {
     const updatedTodos = todos.map((todo) => {
       return todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo;
     });
-
-    console.log(updatedTodos)
+    
     storage.setItem('wally-todos', JSON.stringify(updatedTodos));
   }
 }

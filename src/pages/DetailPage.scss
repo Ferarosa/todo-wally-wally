@@ -31,28 +31,35 @@
     }
   }
 
-  &-button {
+  &-footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    
-    &-item {
-      padding: 12px;
-      font-size: 18px;
-      border-radius: 4px;
 
-      & + & {
-        margin-left: 10px;
-      }
-
-      &.edit {
-        background-color: rgb(255, 188, 65);
-      }
-  
-      &.delete {
-        background-color: rgb(248, 103, 50);
+    &-date {
+      .date {
+        margin: 5px 0;
       }
     }
-
+    
+    &-button {
+      &-item {
+        padding: 12px;
+        font-size: 18px;
+        border-radius: 4px;
+  
+        & + & {
+          margin-left: 10px;
+        }
+  
+        &.edit {
+          background-color: rgb(255, 188, 65);
+        }
+    
+        &.delete {
+          background-color: rgb(248, 103, 50);
+        }
+      }
+    }
   }
 }

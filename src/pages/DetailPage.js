@@ -4,6 +4,7 @@ import api from 'api';
 import NotFoundPage from './NotFoundPage';
 import './DetailPage.scss';
 import { Link } from 'react-router-dom';
+import date from 'utils/date';
 
 class DetailPage extends Component {
   state = {
@@ -26,7 +27,7 @@ class DetailPage extends Component {
   }
 
   onToggleTodoComplete = (id) => {
-    api.toggleTodoItem(id);
+    api.toggleTodoItem(id, 'all');
     this.fetchTodoItem();
   }
 
@@ -56,7 +57,7 @@ class DetailPage extends Component {
       <section className="todo-detail-page">
         <article className="todo-detail">
           <div className="todo-detail-title">
-            <h3>제목</h3>
+            <h3><span className="emoji">🌟</span> 제목</h3>
             <div className="todo-detail-completed-checkbox" onClick={() => this.onToggleTodoComplete(todo.id)}>
               {todo.isCompleted ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
               할일 완료 체크
@@ -64,13 +65,19 @@ class DetailPage extends Component {
             <p className="title">{todo.title}</p>
           </div>
           <div className="todo-detail-contents">
-            <h3>내용</h3>
+            <h3><span className="emoji">🌟</span> 내용</h3>
             <p className="contents">{todo.contents}</p>
           </div>
         </article>
-        <article className="todo-detail-button">
-          <Link className="todo-detail-button-item edit" to={`/edit/${todo.id}`}>수정</Link>
-          <button className="todo-detail-button-item delete" type="button" onClick={this.removeTodoItem}>삭제</button>
+        <article className="todo-detail-footer">
+          <article className="todo-detail-footer-date">
+            {todo.createdAt && <p className="date">작성일자: {date.formatedDate(todo.createdAt)}</p>}
+            {todo.updatedAt && <p className="date">수정일자: {date.formatedDate(todo.updatedAt)}</p>}
+          </article>
+          <article className="todo-detail-footer-button">
+            <Link className="todo-detail-footer-button-item edit" to={`/edit/${todo.id}`}>수정</Link>
+            <button className="todo-detail-footer-button-item delete" type="button" onClick={this.removeTodoItem}>삭제</button>
+          </article>
         </article>
       </section>
     );

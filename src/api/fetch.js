@@ -1,17 +1,42 @@
 import api from 'api';
 import storage from 'utils/storage';
 
+// temp function) id가 클수록 최근에 작성한 할일이기 때문에 최신순으로 정렬하는 임시 함수 구성
+const recentlySortFunction = (a, b) => b.id - a.id;
+
 const fetch = {
-  fetchTodoList() {
+  fetchTodoList(filterOption = 'all') {
     const todos = storage.getItem('wally-todos');
     if (!todos) {
       // 이 페이지를 최초로 여는 경우 빈 배열로 세팅
       storage.setItem('wally-todos', JSON.stringify([]));
     }
     
-    return {
-      data: JSON.parse(todos || '[]'),
-      isError: false,
+    const parsedTodos = JSON.parse(todos || '[]').sort(recentlySortFunction);
+
+    if (filterOption === 'all') {
+      return {
+        data: parsedTodos,
+        isError: false,
+      }
+    }
+
+    if (filterOption === 'completed') {
+      const filteredTodos = parsedTodos.filter((todo) => todo.isCompleted);
+
+      return {
+        data: filteredTodos,
+        isError: false,
+      }
+    }
+
+    if (filterOption === 'inCompleted') {
+      const filteredTodos = parsedTodos.filter((todo) => !todo.isCompleted);
+
+      return {
+        data: filteredTodos,
+        isError: false,
+      }
     }
   },
   
@@ -46,7 +71,7 @@ const fetch = {
       data: matcedTodoItem,
       isError: false,
     }
-  }
+  },
 }
 
 export default fetch;

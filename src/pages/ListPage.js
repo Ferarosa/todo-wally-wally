@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TodoCategory from 'components/TodoCategory/TodoCategory';
 import TodoItem from 'components/TodoItem/TodoItem';
 import NotFoundPage from './NotFoundPage';
 import './ListPage.scss';
@@ -8,14 +9,15 @@ class ListPage extends Component {
   state = {
     todos: [],
     isError: false,
+    filterOption: 'all',
   }
 
   componentDidMount() {
     this.fetchTodoList();
   }
 
-  fetchTodoList = () => {
-    const { data, isError } = api.fetchTodoList();
+  fetchTodoList = (filterOption) => {
+    const { data, isError } = api.fetchTodoList(filterOption);
 
     this.setState({
       todos: data,
@@ -24,8 +26,19 @@ class ListPage extends Component {
   }
 
   onToggleTodoComplete = (id) => {
+    const { filterOption } = this.state;
+
     api.toggleTodoItem(id);
-    this.fetchTodoList();
+
+    this.fetchTodoList(filterOption);
+  }
+
+  onChangeFilterOption = (filterOption) => {
+    this.setState({
+      filterOption,
+    });
+
+    this.fetchTodoList(filterOption);
   }
 
   render() {
@@ -37,7 +50,8 @@ class ListPage extends Component {
 
     return (
       <section className="todo-list-page">
-        <h2>할일 목록</h2>
+        <h2><span className="emoji">📃</span> 할일 목록</h2>
+        <TodoCategory onChangeFilterOption={this.onChangeFilterOption} />
         {!todos || todos.length === 0
           ? (<p className="no-exist-todo-list">할일 목록이 없습니다.</p>)
           : (<ul className="todo-list">
