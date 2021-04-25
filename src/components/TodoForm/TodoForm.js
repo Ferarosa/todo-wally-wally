@@ -25,7 +25,7 @@ class TodoForm extends Component {
   }
 
   render() {
-    const { title, contents, onSubmitTodo } = this.props;
+    const { type, title, contents, onSubmitTodo } = this.props;
 
     return (
       <form className="todo-form" onSubmit={onSubmitTodo}>
@@ -37,7 +37,7 @@ class TodoForm extends Component {
           <label htmlFor="contents">상세내용</label>
           <textarea id="contents" value={contents} onChange={this.onChangeContents} />
         </article>
-        <button type="submit">추가</button>
+        <button type="submit">할일 {type === 'add' ? '추가' : '수정'}</button>
       </form>
     );
   }

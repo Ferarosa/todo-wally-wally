@@ -86,6 +86,7 @@ class FormPage extends Component {
       <section className="todo-form-page">
         <h2>할일 {type === 'add' ? '추가' : '수정'}</h2>
         <TodoForm
+          type={type}
           title={title}
           contents={contents}
           onChangeTitle={this.onChangeTitle}
