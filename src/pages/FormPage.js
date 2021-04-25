@@ -12,15 +12,14 @@ class FormPage extends Component {
   }
 
   componentDidMount() {
-    const type = this.props.type;
+    const { type, match } = this.props;
 
     this.setState({
       type,
     });
 
     if (type === 'edit') {
-      const params = this.props.match.params;
-      const todoId = params.id;
+      const todoId = match.params.id;
 
       const { data, isError } = api.fetchTodoItem(todoId);
 

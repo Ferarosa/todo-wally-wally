@@ -16,15 +16,10 @@ class ListPage extends Component {
   fetchTodoList = () => {
     const { data, isError } = api.fetchTodoList();
 
-    if (isError) {
-      this.setState({
-        isError,
-      })
-    }
-    
     this.setState({
-      todos: JSON.parse(data),
-    })
+      todos: data,
+      isError,
+    });
   }
 
   render() {
