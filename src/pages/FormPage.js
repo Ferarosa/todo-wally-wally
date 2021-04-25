@@ -14,29 +14,10 @@ class FormPage extends Component {
   }
 
   componentDidMount() {
-    const { type, match } = this.props;
-
-    this.setState({
-      type,
-    });
+    const { type } = this.props;
 
     if (type === 'edit') {
-      const todoId = match.params.id;
-
-      const { data, isError } = api.fetchTodoItem(todoId);
-
-      if (isError) {
-        this.setState({
-          isError,
-        });
-        return;
-      }
-
-      this.setState({
-        title: data.title,
-        contents: data.contents,
-        isCompleted: data.isCompleted,
-      });
+      this.fetchTodoItem();
     }
   }
 
@@ -44,20 +25,46 @@ class FormPage extends Component {
     const presentType = this.props.type;
     const prevType = prevProps.type;
 
-    if (presentType !== prevType && presentType === 'add') {
+    if (presentType === prevType) {
+      return;
+    }
+
+    if (presentType === 'add') {
       this.setState({
         type: presentType,
         title: '',
         contents: '',
         isError: false,
       });
+
+      return;
+    }
+
+    if (presentType === 'edit') {
+      this.fetchTodoItem();
     }
   }
 
-  onChangeNotMatchTodoId = () => {
-    this.setState({
-      notMatchTodoId: true,
-    });
+  fetchTodoItem = () => {
+    const { type, match } = this.props;
+    const todoId = match.params.id;
+
+      const { data, isError } = api.fetchTodoItem(todoId);
+
+      if (isError) {
+        this.setState({
+          isError,
+        });
+
+        return;
+      }
+
+      this.setState({
+        type,
+        title: data.title,
+        contents: data.contents,
+        isCompleted: data.isCompleted,
+      });
   }
 
   onChangeInput = (e) => {
@@ -89,7 +96,9 @@ class FormPage extends Component {
         title,
         contents,
       }, '/list');
-    } else {
+    }
+    
+    if (type === 'edit') {
       requestSubmitTodo(api.updateTodoItem, {
         id: +match.params.id,
         title,
