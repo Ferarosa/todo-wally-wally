@@ -24,10 +24,29 @@
   &-completed-checkbox {
     display: inline-flex;
     padding-left: 15px;
-    cursor: pointer;
 
-    svg {
-      color: rgb(255, 59, 59);
+    input {
+      display: none;
+
+      & + label {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 1px solid #bbb;
+        cursor: pointer;
+
+        &::after {
+          content: '할 일 완료 체크';
+          display: block;
+          margin-left: 20px;
+          width: 120px;
+          font-size: 14px;
+        }
+      }
+
+      &:checked + label {
+        background-color: rgb(255, 59, 59);
+      }
     }
   }
 

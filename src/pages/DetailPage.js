@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 import api from 'api';
 import NotFoundPage from './NotFoundPage';
 import './DetailPage.scss';
@@ -9,7 +8,14 @@ import text from 'utils/text';
 
 class DetailPage extends Component {
   state = {
-    todo: {},
+    todo: {
+      id: 0,
+      title: '',
+      contents: '',
+      isCompleted: false,
+      createdAt: '',
+      updatedAt: '',
+    },
     isError: false,
   }
 
@@ -61,9 +67,9 @@ class DetailPage extends Component {
             <h3>
               <span className="emoji">🌟</span> 제목
             </h3>
-            <div className="todo-detail-completed-checkbox" onClick={() => this.onToggleTodoComplete(todo.id)}>
-              {todo.isCompleted ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-              할 일 완료 체크
+            <div className="todo-detail-completed-checkbox">
+              <input id="todo-completed" type="checkbox" checked={todo.isCompleted} onChange={() => this.onToggleTodoComplete(todo.id)} />
+              <label htmlFor="todo-completed" onChange={() => this.onToggleTodoComplete(todo.id)} />
             </div>
             <p className="title">{todo.title}</p>
           </div>
@@ -71,13 +77,13 @@ class DetailPage extends Component {
             <h3>
               <span className="emoji">🌟</span> 내용
             </h3>
-            <p className="contents">{todo.contents && text.splitNewLine(todo.contents)}</p>
+            <p className="contents">{text.splitNewLine(todo.contents)}</p>
           </div>
         </article>
         <article className="todo-detail-footer">
           <article className="todo-detail-footer-date">
-            {todo.createdAt && <p className="date">작성 일자: {date.formatedDate(todo.createdAt, true)}</p>}
-            {todo.updatedAt && <p className="date">수정 일자: {date.formatedDate(todo.updatedAt, true)}</p>}
+            <p className="date">작성 일자: {date.formatedDate(todo.createdAt, true)}</p>
+            <p className="date">수정 일자: {date.formatedDate(todo.updatedAt, true)}</p>
           </article>
           <article className="todo-detail-footer-button">
             <Link className="todo-detail-footer-button-item edit" to={`/edit/${todo.id}`}>수정</Link>
