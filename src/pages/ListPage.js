@@ -43,7 +43,7 @@ class ListPage extends Component {
   }
 
   render() {
-    const { todos, isError } = this.state;
+    const { todos, isError, filterOption } = this.state;
 
     if (isError) {
       return <NotFoundPage />;
@@ -54,7 +54,10 @@ class ListPage extends Component {
         <h2>
           <span className="emoji">📋</span> 할 일 목록
         </h2>
-        {(!!todos && todos.length > 0) && <TodoCategory onChangeFilterOption={this.onChangeFilterOption} />}
+        <TodoCategory
+          filterOption={filterOption}
+          onChangeFilterOption={this.onChangeFilterOption}
+        />
         {!todos || todos.length === 0
           ? <EmptyTodos />
           : (<ul className="todo-list">
