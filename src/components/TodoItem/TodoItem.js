@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import date from 'utils/date';
 import text from 'utils/text';
@@ -26,6 +27,19 @@ class TodoItem extends Component {
       </li>
     );
   }
+}
+
+TodoItem.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    contents: PropTypes.string.isRequired,
+    isCompleted: PropTypes.bool.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    updatedAt: PropTypes.string.isRequired,
+  }),
+  
+  onToggleTodoComplete: PropTypes.func,
 }
 
 export default TodoItem;

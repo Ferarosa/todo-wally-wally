@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# :page_with_curl: todo-wally-wally
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
 
-## Available Scripts
+## :one: Overview
 
-In the project directory, you can run:
+- `React.js`를 익히고 친숙해지는데 주 목표로 삼고 약 2주동안 간단한 Todo List를 만든다.
 
-### `yarn start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :two: Tech Stack
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+📍 **Programming Language** : `Javascript`
 
-### `yarn test`
+📍 **Styling Lnaguage**: `Scss`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+📍 **Deployment**: `Netlify` (Expected)
 
-### `yarn build`
+📍 **Development Enviornment** : Windows 10, Node.js 12 or higher
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📍 **Using Editor** : Visual Studio Code
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :three: Main Goals
 
-### `yarn eject`
+- React를 이용하여 기본적인 CRUD 구현
+- React-router를 이용하여 라우터 기본 구성 방법 숙지
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :four: Result(Screenshots)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 할 일 목록 페이지
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![01](https://user-images.githubusercontent.com/52685250/116001597-27b8de00-a630-11eb-8df3-514f18399083.PNG)
 
-## Learn More
+- 할 일 상세 페이지
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![02](https://user-images.githubusercontent.com/52685250/116001599-28ea0b00-a630-11eb-91bf-031b3b7cd4da.PNG)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 할 일 작성(또는 수정) 페이지
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![03](https://user-images.githubusercontent.com/52685250/116001600-28ea0b00-a630-11eb-9e52-5b919479aae8.PNG)
