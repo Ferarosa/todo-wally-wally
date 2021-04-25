@@ -5,6 +5,7 @@ import ListPage from './pages/ListPage';
 import FormPage from './pages/FormPage';
 import DetailPage from './pages/DetailPage';
 import NotFoundPage from './pages/NotFoundPage';
+import Footer from 'components/Footer/Footer';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/detail/:id" component={DetailPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 };
