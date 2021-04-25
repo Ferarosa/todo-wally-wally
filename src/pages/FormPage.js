@@ -60,16 +60,12 @@ class FormPage extends Component {
     });
   }
 
-  onChangeTitle = (title) => {
-    this.setState({
-      title,
-    });
-  }
+  onChangeInput = (e) => {
+    const { name, value } = e.target;
 
-  onChangeContents = (contents) => {
     this.setState({
-      contents,
-    });
+      [name]: value,
+    })
   }
 
   onSubmitTodo = (e) => {
@@ -123,8 +119,7 @@ class FormPage extends Component {
           typeText={this.typeText(type)}
           title={title}
           contents={contents}
-          onChangeTitle={this.onChangeTitle}
-          onChangeContents={this.onChangeContents}
+          onChangeInput={this.onChangeInput}
           onSubmitTodo={this.onSubmitTodo}
         />
       </section>

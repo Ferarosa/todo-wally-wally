@@ -12,30 +12,30 @@ class TodoForm extends Component {
     this.titleInput.current.focus();
   }
 
-  onChangeTitle = (e) => {
-    this.props.onChangeTitle(e.target.value);
-  }
-
-  onChangeContents = (e) => {
-    this.props.onChangeContents(e.target.value);
-  }
-
-  onSubmitTodo = (e) => {
-    this.props.onSubmitTodo(e);
-  }
-
   render() {
-    const { typeText, title, contents, onSubmitTodo } = this.props;
+    const { typeText, title, contents, onChangeInput, onSubmitTodo } = this.props;
 
     return (
       <form className="todo-form" onSubmit={onSubmitTodo}>
         <article className="todo-form-title">
           <label htmlFor="title">제목</label>
-          <input type="text" ref={this.titleInput} id="title" value={title} onChange={this.onChangeTitle} />
+          <input
+            id="title"
+            name="title"
+            type="text"
+            ref={this.titleInput}
+            value={title}
+            onChange={onChangeInput}
+          />
         </article>
         <article className="todo=form-contents">
           <label htmlFor="contents">상세 내용</label>
-          <textarea id="contents" value={contents} onChange={this.onChangeContents} />
+          <textarea
+            id="contents"
+            name="contents"
+            value={contents}
+            onChange={onChangeInput}
+          />
         </article>
         <button type="submit">{typeText}</button>
       </form>

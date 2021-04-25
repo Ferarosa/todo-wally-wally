@@ -2,8 +2,6 @@ import api from 'api';
 import storage from 'utils/storage';
 
 // temp function) id가 클수록 최근에 작성한 할일이기 때문에 최신순으로 정렬하는 임시 함수 구성
-const recentlySortFunction = (a, b) => b.id - a.id;
-
 const fetch = {
   fetchTodoList(filterOption = 'all') {
     const todos = storage.getItem('wally-todos');
@@ -12,7 +10,7 @@ const fetch = {
       storage.setItem('wally-todos', JSON.stringify([]));
     }
     
-    const parsedTodos = JSON.parse(todos || '[]').sort(recentlySortFunction);
+    const parsedTodos = JSON.parse(todos || '[]');
 
     if (filterOption === 'all') {
       return {
