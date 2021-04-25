@@ -1,3 +1,4 @@
+import api from 'api';
 import storage from 'utils/storage';
 
 const remove = {
@@ -9,7 +10,7 @@ const remove = {
       }
     }
 
-    const todos = JSON.parse(storage.getItem('wally-todos'));
+    const todos = api.fetchTodoList().data;
 
     const filteredTodos = todos.filter((todo) => todo.id !== id);
 

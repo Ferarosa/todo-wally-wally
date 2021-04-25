@@ -1,3 +1,4 @@
+import api from 'api';
 import storage from 'utils/storage';
 
 const fetch = {
@@ -23,7 +24,7 @@ const fetch = {
       }
     }
 
-    const todos = JSON.parse(storage.getItem('wally-todos'));
+    const todos = api.fetchTodoList().data;
     if (!todos) {
       return {
         data: {},

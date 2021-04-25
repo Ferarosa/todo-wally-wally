@@ -1,3 +1,4 @@
+import api from 'api';
 import storage from 'utils/storage';
 
 const create = {
@@ -18,7 +19,7 @@ const create = {
       }
     }
 
-    const todos = JSON.parse(storage.getItem('wally-todos'));
+    const todos = api.fetchTodoList().data;
     const todoId = !todos || todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
 
     const newTodos = todos.concat({
