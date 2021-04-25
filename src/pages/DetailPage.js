@@ -5,6 +5,7 @@ import NotFoundPage from './NotFoundPage';
 import './DetailPage.scss';
 import { Link } from 'react-router-dom';
 import date from 'utils/date';
+import text from 'utils/text';
 
 class DetailPage extends Component {
   state = {
@@ -70,7 +71,7 @@ class DetailPage extends Component {
             <h3>
               <span className="emoji">🌟</span> 내용
             </h3>
-            <p className="contents">{todo.contents}</p>
+            <p className="contents">{todo.contents && text.splitNewLine(todo.contents)}</p>
           </div>
         </article>
         <article className="todo-detail-footer">
