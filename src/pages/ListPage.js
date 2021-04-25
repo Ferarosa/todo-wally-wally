@@ -50,10 +50,10 @@ class ListPage extends Component {
 
     return (
       <section className="todo-list-page">
-        <h2><span className="emoji">📃</span> 할일 목록</h2>
+        <h2><span className="emoji">📋</span> 할 일 목록</h2>
         <TodoCategory onChangeFilterOption={this.onChangeFilterOption} />
         {!todos || todos.length === 0
-          ? (<p className="no-exist-todo-list">할일 목록이 없습니다.</p>)
+          ? (<p className="no-exist-todo-list">할 일 목록이 없습니다.</p>)
           : (<ul className="todo-list">
               {todos.map((todo) => <TodoItem key={todo.id} todo={todo} onToggleTodoComplete={this.onToggleTodoComplete} />)}
             </ul>)

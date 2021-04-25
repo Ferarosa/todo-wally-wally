@@ -34,7 +34,7 @@ class TodoForm extends Component {
           <input type="text" ref={this.titleInput} id="title" value={title} onChange={this.onChangeTitle} />
         </article>
         <article className="todo=form-contents">
-          <label htmlFor="contents">상세내용</label>
+          <label htmlFor="contents">상세 내용</label>
           <textarea id="contents" value={contents} onChange={this.onChangeContents} />
         </article>
         <button type="submit">{typeText}</button>

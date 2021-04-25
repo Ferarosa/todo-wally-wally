@@ -35,7 +35,7 @@ class DetailPage extends Component {
     const { todo } = this.state;
     const { history } = this.props;
 
-    if (confirm('할일을 정말로 삭제하시겠습니까?')) { //eslint-disable-line
+    if (confirm('할 일을 정말로 삭제하시겠습니까?')) { //eslint-disable-line
       const { message, isError } = api.removeTodoItem(todo.id);
 
       alert(message);
@@ -60,7 +60,7 @@ class DetailPage extends Component {
             <h3><span className="emoji">🌟</span> 제목</h3>
             <div className="todo-detail-completed-checkbox" onClick={() => this.onToggleTodoComplete(todo.id)}>
               {todo.isCompleted ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-              할일 완료 체크
+              할 일 완료 체크
             </div>
             <p className="title">{todo.title}</p>
           </div>
@@ -71,8 +71,8 @@ class DetailPage extends Component {
         </article>
         <article className="todo-detail-footer">
           <article className="todo-detail-footer-date">
-            {todo.createdAt && <p className="date">작성일자: {date.formatedDate(todo.createdAt)}</p>}
-            {todo.updatedAt && <p className="date">수정일자: {date.formatedDate(todo.updatedAt)}</p>}
+            {todo.createdAt && <p className="date">작성 일자: {date.formatedDate(todo.createdAt)}</p>}
+            {todo.updatedAt && <p className="date">수정 일자: {date.formatedDate(todo.updatedAt)}</p>}
           </article>
           <article className="todo-detail-footer-button">
             <Link className="todo-detail-footer-button-item edit" to={`/edit/${todo.id}`}>수정</Link>

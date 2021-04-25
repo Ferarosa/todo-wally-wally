@@ -5,8 +5,15 @@ import './Header.scss';
 const Header = () => {
   return (
     <header>
-      <Link to="/list">리스트</Link>
-      <Link to="/form">작성페이지</Link>
+      <h2>wally-wally's Todo List</h2>
+      <div className="link-group">
+        <Link to="/list">
+          <span className="emoji">📃</span> 할 일 목록
+        </Link>
+        <Link to="/form">
+          <span className="emoji">➕</span> 할 일 추가
+        </Link>
+      </div>
     </header>
   );
 };
