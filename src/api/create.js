@@ -1,6 +1,8 @@
 import api from 'api';
 import storage from 'utils/storage';
 
+const recentlySortFunction = (a, b) => b.id - a.id;
+
 const create = {
   createTodoItem(todoForm) {
     const { title, contents } = todoForm;
@@ -19,8 +21,8 @@ const create = {
       }
     }
 
-    const todos = api.fetchTodoList().data;
-    const todoId = !todos || todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
+    const todos = api.fetchTodoList().data.sort(recentlySortFunction);
+    const todoId = !todos || todos.length === 0 ? 1 : todos[0].id + 1;
 
     const nowDate = new Date();
 
