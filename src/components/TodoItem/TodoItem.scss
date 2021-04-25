@@ -1,7 +1,28 @@
 .todo-list-item {
-  &-title,
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid silver;
+  border-radius: 10px;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+
+  &-title {
+    font-family: 'Noto Sans KR';
+    font-size: 20px;
+    cursor: pointer;
+
+    &.todo-completed {
+      color: #bbb;
+      text-decoration: line-through;
+    }
+  }
+
   &-link {
-    display: inline-block;
+    background-color: #eee;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
 
   & + & {

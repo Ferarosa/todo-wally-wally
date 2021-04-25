@@ -22,6 +22,11 @@ class ListPage extends Component {
     });
   }
 
+  onToggleTodoComplete = (id) => {
+    api.toggleTodoItem(id);
+    this.fetchTodoList();
+  }
+
   render() {
     const { todos, isError } = this.state;
 
@@ -34,7 +39,7 @@ class ListPage extends Component {
         {!todos || todos.length === 0
           ? (<p>할일 목록이 없습니다.</p>)
           : (<ul className="todo-list">
-              {todos.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
+              {todos.map((todo) => <TodoItem key={todo.id} todo={todo} onToggleTodoComplete={this.onToggleTodoComplete} />)}
             </ul>)
         }
       </section>

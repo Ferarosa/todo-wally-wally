@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from 'api';
 import NotFoundPage from './NotFoundPage';
+import './DetailPage.scss';
 import { Link } from 'react-router-dom';
 
 class DetailPage extends Component {
@@ -47,12 +48,17 @@ class DetailPage extends Component {
 
     return (
       <section className="todo-detail-page">
-        <article className="todo-detail-wrapper">
-          <div className="number">No. {todo.id}</div>
-          <div className="title">{todo.title}</div>
-          <div className="contents">{todo.contents}</div>
+        <article className="todo-detail">
+          <div className="todo-detail-title">
+            <h3>제목</h3>
+            <p className="title">{todo.title}</p>
+          </div>
+          <div className="todo-detail-contents">
+            <h3>내용</h3>
+            <p className="contents">{todo.contents}</p>
+          </div>
         </article>
-        <article className="todo-detail-button-wrapper">
+        <article className="todo-detail-buttons">
           <Link to={`/edit/${todo.id}`}>수정</Link>
           <button type="button" onClick={this.removeTodoItem}>삭제</button>
         </article>

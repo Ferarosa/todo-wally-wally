@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import text from 'utils/text';
 import './TodoItem.scss';
 
-const TodoItem = ({ todo }) => {
-  return (
-    <li className="todo-list-item">
-      <div className="todo-list-item-title">
-       {todo.id}. {todo.title}
-      </div>
-      <Link className="todo-list-item-link" to={`/detail/${todo.id}`}>
-        상세보기
-      </Link>
-    </li>
-  );
-};
+const setCompletedClassName = (isCompleted) => {
+  return isCompleted ? 'todo-completed' : ''
+}
+
+class TodoItem extends Component {
+  render() {
+    const { todo, onToggleTodoComplete } = this.props;
+
+    return (
+      <li className="todo-list-item">
+        <div className={`todo-list-item-title ${setCompletedClassName(todo.isCompleted)}`} onClick={() => onToggleTodoComplete(todo.id)}>
+          {text.ellipsis(todo.title, 20)}
+        </div>
+        <Link className="todo-list-item-link" to={`/detail/${todo.id}`}>
+          상세보기
+        </Link>
+      </li>
+    );
+  }
+}
 
 export default TodoItem;

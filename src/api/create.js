@@ -22,11 +22,15 @@ const create = {
     const todos = api.fetchTodoList().data;
     const todoId = !todos || todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
 
+    const nowDate = new Date();
+
     const newTodos = todos.concat({
       id: todoId,
       title,
       contents,
       isCompleted: false,
+      createdAt: nowDate,
+      updatedAt: nowDate,
     });
 
     storage.setItem('wally-todos', JSON.stringify(newTodos));
