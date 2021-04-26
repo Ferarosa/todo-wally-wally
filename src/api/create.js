@@ -1,4 +1,5 @@
 import api from 'api';
+import form from 'utils/form';
 import storage from 'utils/storage';
 
 const recentlySortFunction = (a, b) => b.id - a.id;
@@ -7,31 +8,12 @@ const create = {
   createTodoItem(todoForm) {
     const { title, contents } = todoForm;
 
-    if (title.trim() === '') {
-      return {
-        message: '제목을 입력해주세요.',
-        isError: true,
-      }
-    }
+    const { message, isError } = form.prechecker(title, contents);
 
-    if (title.trim().length > 50) {
+    if (isError) {
       return {
-        message: '제목은 최대 50자까지 작성할 수 있습니다.',
-        isError: true,
-      }
-    }
-
-    if (contents.trim() === '') {
-      return {
-        message: '내용을 입력해주세요.',
-        isError: true,
-      }
-    }
-
-    if (contents.trim().length > 1000) {
-      return {
-        message: '내용은 최대 1000자까지 작성할 수 있습니다.',
-        isError: true,
+        message,
+        isError,
       }
     }
 

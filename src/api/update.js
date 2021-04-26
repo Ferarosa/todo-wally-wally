@@ -1,21 +1,17 @@
 import api from 'api';
+import form from 'utils/form';
 import storage from 'utils/storage';
 
 const update = {
   updateTodoItem(todoForm) {
     const { id, title, contents } = todoForm;
 
-    if (title.trim() === '') {
-      return {
-        message: '제목을 입력해주세요.',
-        isError: true,
-      }
-    }
+    const { message, isError } = form.prechecker(title, contents);
 
-    if (contents.trim() === '') {
+    if (isError) {
       return {
-        message: '내용을 입력해주세요.',
-        isError: true,
+        message,
+        isError,
       }
     }
 
