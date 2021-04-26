@@ -32,6 +32,7 @@ const update = {
       isError: false,
     }
   },
+
   toggleTodoItem(id) {
     const todos = api.fetchTodoList().data;
 

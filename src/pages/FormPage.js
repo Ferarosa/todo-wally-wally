@@ -53,22 +53,22 @@ class FormPage extends Component {
     const { type, match } = this.props;
     const todoId = match.params.id;
 
-      const { data, isError } = api.fetchTodoItem(todoId);
+    const { data, isError } = api.fetchTodoItem(todoId);
 
-      if (isError) {
-        this.setState({
-          isError,
-        });
-
-        return;
-      }
-
+    if (isError) {
       this.setState({
-        type,
-        title: data.title,
-        contents: data.contents,
-        isCompleted: data.isCompleted,
+        isError,
       });
+
+      return;
+    }
+
+    this.setState({
+      type,
+      title: data.title,
+      contents: data.contents,
+      isCompleted: data.isCompleted,
+    });
   }
 
   onChangeInput = (e) => {
