@@ -3,7 +3,6 @@ import './ListPage.scss';
 import api from 'api';
 import TodoCategory from 'components/TodoList/TodoCategory/TodoCategory';
 import TodoListWrapper from 'components/TodoList/TodoListWrapper/TodoListWrapper';
-import EmptyTodos from 'components/TodoList/EmptyTodos/EmptyTodos';
 import NotFoundPage from './NotFoundPage';
 
 class ListPage extends Component {
@@ -58,10 +57,7 @@ class ListPage extends Component {
           filterOption={filterOption}
           onChangeFilterOption={this.onChangeFilterOption}
         />
-        {!!todos.length
-          ? <TodoListWrapper todos={todos} onToggleTodoComplete={this.onToggleTodoComplete} />
-          : <EmptyTodos />
-        }
+        <TodoListWrapper todos={todos} onToggleTodoComplete={this.onToggleTodoComplete} />
       </section>
     );
   }
