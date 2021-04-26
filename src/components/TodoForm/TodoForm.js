@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import number from 'utils/number';
 import './TodoForm.scss';
 
+const setAlertClassName = (fn) => {
+  return fn ? 'alert' : '';
+}
 class TodoForm extends Component {
   titleInput = React.createRef();
 
@@ -13,10 +16,6 @@ class TodoForm extends Component {
     this.titleInput.current.focus();
   }
 
-  setAlertClassName = (fn) => {
-    return fn ? 'alert' : '';
-  }
-
   render() {
     const { typeText, title, contents, onChangeInput, onSubmitTodo } = this.props;
 
@@ -26,7 +25,7 @@ class TodoForm extends Component {
           <label htmlFor="title">
             제목
             <br />
-            <small className={this.setAlertClassName(title.length > 50)}>
+            <small className={setAlertClassName(title.length > 50)}>
               ({number.commaize(title.length)}/50)
             </small>
           </label>
@@ -44,7 +43,7 @@ class TodoForm extends Component {
           <label htmlFor="contents">
             상세 내용
             <br />
-            <small className={this.setAlertClassName(contents.length > 1000)}>
+            <small className={setAlertClassName(contents.length > 1000)}>
               ({number.commaize(contents.length)}/1,000)
             </small>
           </label>
