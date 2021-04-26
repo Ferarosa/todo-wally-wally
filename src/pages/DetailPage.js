@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './DetailPage.scss';
 import api from 'api';
 import NotFoundPage from './NotFoundPage';
-import './DetailPage.scss';
-import { Link } from 'react-router-dom';
 import date from 'utils/date';
 import text from 'utils/text';
 

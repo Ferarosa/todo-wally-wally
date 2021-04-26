@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import TodoCategory from 'components/TodoCategory/TodoCategory';
-import EmptyTodos from 'components/EmptyTodos/EmptyTodos';
-import NotFoundPage from './NotFoundPage';
 import './ListPage.scss';
 import api from 'api';
-import TodoList from 'components/TodoList/TodoList';
+import TodoCategory from 'components/TodoList/TodoCategory/TodoCategory';
+import TodoListWrapper from 'components/TodoList/TodoListWrapper/TodoListWrapper';
+import EmptyTodos from 'components/TodoList/EmptyTodos/EmptyTodos';
+import NotFoundPage from './NotFoundPage';
 
 class ListPage extends Component {
   state = {
@@ -59,7 +59,7 @@ class ListPage extends Component {
           onChangeFilterOption={this.onChangeFilterOption}
         />
         {!!todos.length
-          ? <TodoList todos={todos} onToggleTodoComplete={this.onToggleTodoComplete} />
+          ? <TodoListWrapper todos={todos} onToggleTodoComplete={this.onToggleTodoComplete} />
           : <EmptyTodos />
         }
       </section>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import number from 'utils/number';
 import './TodoForm.scss';
+import number from 'utils/number';
 
 const setAlertClassName = (fn) => {
   return fn ? 'alert' : '';

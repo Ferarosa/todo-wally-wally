@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './NotFoundPage.scss';
 import NotFoundImage from 'assets/images/404-error.png';
-import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => {
   return (

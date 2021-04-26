@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import TodoForm from 'components/TodoForm/TodoForm';
-import NotFoundPage from './NotFoundPage';
 import './FormPage.scss';
 import api from 'api';
+import TodoForm from 'components/TodoList/TodoForm/TodoForm';
+import NotFoundPage from './NotFoundPage';
 
 class FormPage extends Component {
   state = {

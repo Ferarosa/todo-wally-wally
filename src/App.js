@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import Header from 'components/Header/Header';
+import Header from 'components/NavigationBar/Header/Header';
 import ListPage from './pages/ListPage';
 import FormPage from './pages/FormPage';
 import DetailPage from './pages/DetailPage';
 import NotFoundPage from './pages/NotFoundPage';
-import Footer from 'components/Footer/Footer';
+import Footer from 'components/NavigationBar/Footer/Footer';
 
 const App = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './TodoList.scss';
-import TodoItem from 'components/TodoItem/TodoItem';
+import './TodoListWrapper.scss';
+import TodoItem from 'components/TodoList/TodoItem/TodoItem';
 
 class TodoList extends Component {
   render() {
