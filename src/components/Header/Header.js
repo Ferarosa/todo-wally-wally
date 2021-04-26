@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.scss';
 
 const Header = () => {
   return (
     <header>
       <h2>wally-wally's Todo List</h2>
-      <div className="link-group">
-        <Link to="/list">
+      <div className="tabs">
+        <NavLink activeClassName="active-tab" to="/list">
           <span className="emoji">📃</span> 할 일 목록
-        </Link>
-        <Link to="/form">
+        </NavLink>
+        <NavLink activeClassName="active-tab" to="/form">
           <span className="emoji">➕</span> 할 일 추가
-        </Link>
+        </NavLink>
       </div>
     </header>
   );
