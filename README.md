@@ -14,7 +14,7 @@
 
 📍 **Styling Lnaguage**: `Scss`
 
-📍 **Deployment**: `Netlify` (Expected)
+📍 **Deployment**: `Netlify`
 
 📍 **Development Enviornment** : Windows 10, Node.js 12 or higher
 
@@ -29,16 +29,20 @@
 
 <br>
 
-## :four: Result(Screenshots)
+## :four: Result
 
-- 할 일 목록 페이지
+- `Netlify` 로 배포된 사이트로 이동 <a href="https://todo-wally-wally.netlify.app/" target="_blank">(바로가기)</a>
 
-![01](https://user-images.githubusercontent.com/52685250/116001597-27b8de00-a630-11eb-8df3-514f18399083.PNG)
+- Screenshots
 
-- 할 일 상세 페이지
+  - 할 일 목록 페이지
 
-![02](https://user-images.githubusercontent.com/52685250/116001599-28ea0b00-a630-11eb-91bf-031b3b7cd4da.PNG)
+    ![01](https://user-images.githubusercontent.com/52685250/116001597-27b8de00-a630-11eb-8df3-514f18399083.PNG)
 
-- 할 일 작성(또는 수정) 페이지
+  - 할 일 상세 페이지
 
-![03](https://user-images.githubusercontent.com/52685250/116001600-28ea0b00-a630-11eb-9e52-5b919479aae8.PNG)
+    ![02](https://user-images.githubusercontent.com/52685250/116001599-28ea0b00-a630-11eb-91bf-031b3b7cd4da.PNG)
+
+  - 할 일 작성(또는 수정) 페이지
+
+    ![03](https://user-images.githubusercontent.com/52685250/116001600-28ea0b00-a630-11eb-9e52-5b919479aae8.PNG)
