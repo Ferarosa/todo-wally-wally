@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import number from 'utils/number';
 import './TodoForm.scss';
 
 class TodoForm extends Component {
@@ -26,7 +27,7 @@ class TodoForm extends Component {
             제목
             <br />
             <small className={this.setAlertClassName(title.length > 50)}>
-              ({title.length}/50)
+              ({number.commaize(title.length)}/50)
             </small>
           </label>
           <input
@@ -34,7 +35,6 @@ class TodoForm extends Component {
             name="title"
             type="text"
             placeholder="제목을 입력해주세요(최대 50자)"
-            maxlength="50"
             ref={this.titleInput}
             value={title}
             onChange={onChangeInput}
@@ -45,14 +45,13 @@ class TodoForm extends Component {
             상세 내용
             <br />
             <small className={this.setAlertClassName(contents.length > 1000)}>
-              ({contents.length}/1000)
+              ({number.commaize(contents.length)}/1,000)
             </small>
           </label>
           <textarea
             id="contents"
             name="contents"
-            placeholder="내용을 작성해주세요(최대 1000자)"
-            maxlength="1000"
+            placeholder="내용을 작성해주세요(최대 1,000자)"
             value={contents}
             onChange={onChangeInput}
           />

@@ -71,13 +71,13 @@ class DetailPage extends Component {
               <input id="todo-completed" type="checkbox" checked={todo.isCompleted} onChange={() => this.onToggleTodoComplete(todo.id)} />
               <label htmlFor="todo-completed" onChange={() => this.onToggleTodoComplete(todo.id)} />
             </div>
-            <p className="title">{todo.title}</p>
+            <p className="title">{text.emptyAltText(todo.title, 'title')}</p>
           </div>
           <div className="todo-detail-contents">
             <h3>
               <span className="emoji">🌟</span> 내용
             </h3>
-            <p className="contents">{text.splitNewLine(todo.contents)}</p>
+            <p className="contents">{text.emptyAltText(todo.contents, 'contents')}</p>
           </div>
         </article>
         <article className="todo-detail-footer">
