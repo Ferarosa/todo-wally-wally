@@ -34,6 +34,7 @@ class TodoForm extends Component {
             name="title"
             type="text"
             placeholder="제목을 입력해주세요(최대 50자)"
+            maxlength="50"
             ref={this.titleInput}
             value={title}
             onChange={onChangeInput}
@@ -51,6 +52,7 @@ class TodoForm extends Component {
             id="contents"
             name="contents"
             placeholder="내용을 작성해주세요(최대 1000자)"
+            maxlength="1000"
             value={contents}
             onChange={onChangeInput}
           />
