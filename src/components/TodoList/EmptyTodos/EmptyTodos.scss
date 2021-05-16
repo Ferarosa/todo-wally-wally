@@ -7,7 +7,7 @@ img {
 
 .no-exist-todo-list {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: $fontBold - 100;
   text-align: center;
   padding: 20px 0;
   color: crimson;

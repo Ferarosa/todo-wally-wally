@@ -8,7 +8,7 @@
 
   p {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: $fontBold;
     color: crimson;
     padding-bottom: 15px;
   }
@@ -16,7 +16,7 @@
   a {
     font-size: 18px;
 
-    &:hover {
+    @include hover() {
       text-decoration: underline;
     }
   }

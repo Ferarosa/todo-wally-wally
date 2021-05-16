@@ -2,8 +2,8 @@
   width: 100%;
 
   article {
-    display: flex;
-    align-items: center;
+    @include alignFlex(_, _, _, center);
+    
     margin-bottom: 20px;
 
     label {
@@ -12,7 +12,7 @@
 
       small.alert {
         color: crimson;
-        font-weight: 600;
+        font-weight: $fontBold;
       }
     }
 
@@ -22,7 +22,7 @@
       padding: 10px;
       border: 1px solid silver;
       border-radius: 5px;
-      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: $boxShadow;
     }
 
     input {

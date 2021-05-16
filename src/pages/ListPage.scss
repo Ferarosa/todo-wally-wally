@@ -3,7 +3,7 @@
 
   h2 {
     font-size: 28px;
-    font-weight: 500;
+    font-weight: $fontBold - 100;
     padding-bottom: 6px;
     margin-bottom: 12px;
     border-bottom: 1px solid silver;

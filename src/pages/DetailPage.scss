@@ -7,7 +7,7 @@
   h3 {
     font-family: 'Noto Sans KR';
     font-size: 24px;
-    font-weight: 500;
+    font-weight: $fontBold - 100;
     padding-bottom: 6px;
     margin-bottom: 12px;
     border-bottom: 1px solid silver;
@@ -18,7 +18,7 @@
     padding: 10px;
     border: 1px solid silver;
     border-radius: 5px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: $boxShadow;
   }
 
   &-completed-checkbox {
@@ -56,9 +56,7 @@
   }
 
   &-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include alignFlex(_, _, space-between, center);
 
     &-date {
       .date {
@@ -67,7 +65,7 @@
     }
 
     &-button {
-      display: flex;
+      @include alignFlex();
 
       &-item {
         padding: 12px;

@@ -1,7 +1,6 @@
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include alignFlex(_, _, space-between, center);
+  
   background-color: antiquewhite;
   padding: 10px;
   
@@ -12,7 +11,7 @@ header {
 
   h2 {
     font-size: 22px;
-    font-weight: 500;
+    font-weight: $fontBold - 100;
   }
 
   .tabs {
@@ -22,7 +21,7 @@ header {
       margin: 0 10px;
 
       &.active-tab {
-        font-weight: 600;
+        font-weight: $fontBold;
       }
     }
   }

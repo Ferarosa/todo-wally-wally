@@ -1,6 +1,6 @@
 .todo-category {
   font-size: 15px;
-  font-weight: 300;
+  font-weight: $fontLight;
   text-align: right;
   padding-bottom: 10px;
   margin-bottom: 10px;
@@ -17,14 +17,14 @@
     color: #666;
     padding: 8px;
     cursor: pointer;
-
-    &.selected {
-      color: #333;
-      font-weight: 700;
+    
+    @include hover() {
       text-decoration: underline;
     }
 
-    &:hover {
+    &.selected {
+      color: #333;
+      font-weight: $fontBold + 100;
       text-decoration: underline;
     }
 
